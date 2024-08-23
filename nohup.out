@@ -2,3 +2,55 @@
 ✔ Local Mintlify instance is ready. Launching your site...
 🌿 Your local preview is available at http://localhost:3000
 🌿 Press Ctrl+C any time to stop the local preview.
+- Preparing local Mintlify instance...
+✔ Local Mintlify instance is ready. Launching your site...
+🌿 Your local preview is available at http://localhost:3000
+🌿 Press Ctrl+C any time to stop the local preview.
+Config edited
+Invalid category
+🚨 Invalid mint.json:
+#.colors.primary: Must be a hex color string, with a leading #
+Error
+    at validateMintJson (file:///usr/lib/node_modules/mintlify/node_modules/@mintlify/prebuild/dist/prebuild/update/mintConfig/validateMintJson.js:23:15)
+    at file:///usr/lib/node_modules/mintlify/node_modules/@mintlify/previewing/dist/local-preview/listener/index.js:210:49
+    at Generator.next (<anonymous>)
+    at fulfilled (file:///usr/lib/node_modules/mintlify/node_modules/@mintlify/previewing/dist/local-preview/listener/index.js:4:58)
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
+Config edited
+Invalid category
