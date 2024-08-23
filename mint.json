@@ -44,7 +44,7 @@
         "introduction",
         "quickstart",
         "development",
-        "CapabilityWorker"
+        "capability_worker"
       ]
     }
   ],
