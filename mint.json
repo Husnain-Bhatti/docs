@@ -3,7 +3,7 @@
   "name": "Starter Kit",
   "logo": {
     "dark": "logo_openhome/dark_logo.png",
-    "light": "/logo/light.svg"
+    "light": "logo_openhome/light_logo.png"
   },
   "favicon": "/favicon.svg",
   "colors": {
