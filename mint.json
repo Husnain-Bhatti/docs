@@ -5,7 +5,7 @@
     "dark": "logo_openhome/dark_logo.png",
     "light": "logo_openhome/light_logo.png"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.ico",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
