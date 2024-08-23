@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
-    "dark": "logo_openhome/openhome-logo-white.png",
+    "dark": "logo_openhome/dark.png",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
@@ -49,8 +49,8 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "x": "https://x.com/OpenHomeAI",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/company/openhome-ai"
   }
 }
