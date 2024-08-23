@@ -1,7 +1,7 @@
 {
   "name": "Starter Kit",
   "logo": {
-    "dark": "/logo_openhome/dark.png",
+    "dark": "logo_openhome/dark_logo.png",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
