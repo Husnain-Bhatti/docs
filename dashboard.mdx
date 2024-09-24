@@ -78,9 +78,10 @@ Additionally, the system tracks the response time in milliseconds, displayed bel
 
 ## Audio & Microphone Controls
 
-- <img src="openhome_icons/dashboard_images/speaker.png" alt="Audio Button" width="20" height="20"> Toggles audio on or off. Use this if you don’t want to hear spoken responses.
+- <img src="openhome_icons/dashboard_images/speaker.png" alt="Audio Button" width="40" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> Toggles audio on or off. Use this if you don’t want to hear spoken responses.
 
-- <img src="openhome_icons/dashboard_images/mic_button.png" alt="Microphone Button" width="20" height="20"> Mutes or unmutes your microphone, depending on your interaction preference.
+- <img src="openhome_icons/dashboard_images/mic_button.png" alt="Microphone Button" width="40" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> Mutes or unmutes your microphone, depending on your interaction preference.
+
 
 ### Manual Interrupt & Sensitivity
 
@@ -132,10 +133,70 @@ In the lower left corner of the **Conversational Dashboard** you can configure y
 
 ### Profile Settings
 
-On your Conversational Dashboard, select **Profile > Settings** <img src="openhome_icons/dashboard_images/settings_button.png" alt="settings_button" width="20" height="20"> to manage your account settings.
+On your Conversational Dashboard, select **Profile > Settings** <img src="openhome_icons/dashboard_images/settings_button.png" alt="settings_button" width="30" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle'}}/> to manage your account settings.
 
 <p align="center">
   <img src="openhome_icons/dashboard_images/profile_settings.png" alt="profile_settings" />
 </p>
 
 Optionally, you can also **Logout** of your account from the Profile menu.
+
+
+### Model Configuration Settings
+
+In this settings section, you can customize the providers powering your Personalities and fine-tune their interactions. By adjusting these settings, you can optimize speech processing, response generation, and voice output to meet your specific needs. This gives you control over each component's functionality, allowing you to tailor the interaction experience to your preferences.
+
+#### Settings Overview
+
+- **STT Model (Speech-to-Text Model):** Select the model that will convert speech input into text.
+- **STT Platform:** Choose the platform that provides the Speech-to-Text service (e.g., Assembly).
+- **TTT Model (Text-to-Text Model):** This is the large language model that will process the transcribed text and generate a response (e.g., GPT-4).
+- **TTT Platform:** Choose the provider for the Text-to-Text processing (e.g., OpenAI).
+- **TTS Model (Text-to-Speech Model):** Select the model that converts text responses back into speech. The selected voice model will dictate how the Personality sounds (e.g., "eleven_turbo_v2", "eleven_monolingual_v1").
+- **TTS Platform:** Choose the platform providing the Text-to-Speech service (e.g., ElevenLabs).
+- **Play Filler Audios:** Toggle this setting to play short filler sounds while the system processes speech, indicating it's working on generating a response.
+- **Auto Sleep:** Enable or disable automatic sleep mode, which will turn off the Personality after a period of inactivity.
+- **FuzzyWuzzy Threshold:** Adjust the sensitivity of the text-matching algorithm. A higher threshold makes the system stricter when matching text input, while a lower threshold makes it more flexible.
+- **Auto Sleep Timeout One:** Set the time (in seconds) before the Personality will confirm inactivity.
+- **Auto Sleep Timeout Two:** Set the time (in seconds) for the second stage of sleep, where the Personality will fully shut down if inactive.
+
+- **OpenAI TTT Temperature:** Controls the randomness of responses from the LLM. A lower temperature (closer to 0) will make responses more focused and deterministic, while a higher temperature (up to 1) makes responses more creative and varied (Wild Card).
+- **OpenAI TTT Frequency Penalty:** Adjusts how often words or phrases can repeat in responses. A higher value will reduce repetition.
+- **OpenAI TTT Presence Penalty:** Similar to the frequency penalty, but it discourages the model from introducing new, irrelevant topics. A higher value encourages the LLM to stick to the subject at hand.
+- **Voice Similarity Boost:** Adjusts how closely the chosen voice matches its intended sound. A higher boost makes the voice more consistent.
+- **Voice Stability:** Controls the stability of the voice output. A lower value makes the voice more varied, while a higher value increases consistency (makes the voice more monotone).
+
+
+### API Key Settings
+
+OpenHome uses various providers to communicate with TTT (Text-to-Text), LLM (Large Language Models), TTS (Text-to-Speech), and STT (Speech-to-Text) vendors.
+
+You can set your provider keys to customize the services that power your Personalities. These keys will be used to access the models that power all of your OpenHome Personalities globally.
+
+- Select the <img src="openhome_icons/dashboard_images/edit_black.png" alt="Edit Button" width="50" height="25" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle'}}/> button to edit your desired API key field.
+- Select the <img src="openhome_icons/dashboard_images/save_black.png" alt="Save Button" width="50" height="25" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle'}}/> button to finalize your changes.
+
+<p align="center">
+  <img src="openhome_icons/dashboard_images/API_keys_config.png" alt="API_keys_config" />
+</p>
+
+> **Note**: When you update these API keys, your Personalities may consume credits from the associated services linked to the keys, which could result in charges from the respective providers. OpenHome is not responsible for these charges. 
+
+## Profile Settings
+
+This screen allows you to manage and update your profile settings within OpenHome.
+
+- Click the <img src="openhome_icons/dashboard_images/edit_button.png" alt="Edit Button" width="40" height="20" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle'}}/> button to modify any of the information, including username, email, and other personal details.
+- Click the <img src="openhome_icons/dashboard_images/save_orange.png" alt="Save Button" width="40" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle'}}/> button to finalize any setting changes.
+
+### Profile Information Overview
+
+- **User Name:** This is the unique username associated with your OpenHome account.
+- **First Name & Last Name:** Displays the personal name details linked to your account. These can be edited to update your profile.
+- **Email:** The email address associated with your OpenHome account. This is where you’ll receive notifications and account-related updates.
+- **Sync with Community:** This indicates whether your account is synced with the OpenHome community.
+- **About:** A section where you can provide a brief description about yourself or your account for the OpenHome community.
+- **API Key:** Your unique private API key used for accessing OpenHome services.
+
+- **Change Password:** Update or change your current account password.
+- **Joined:** This shows the date and time when you initially created your OpenHome account.
