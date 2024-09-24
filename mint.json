@@ -42,6 +42,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
+        "dashboard",
         "quickstart",
         "development",
         "CapabilityWorker"
