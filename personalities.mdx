@@ -63,8 +63,8 @@ To access additional Personality configurations, click the <img src="openhome_ic
 
 Once the required fields are filled:
 
-- Select the <img src="openhome_icons/dashboard_images/save_button.png" alt="save_button" width="100" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> button to finalize and create the new Personality.
-- If you change your mind, select the <img src="openhome_icons/dashboard_images/cancel_button.png" alt="cancel_button" width="100" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> button to discard the process.
+- Select the <img src="openhome_icons/dashboard_images/save_button.png" alt="save_button" width="60" height="20" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> button to finalize and create the new Personality.
+- If you change your mind, select the <img src="openhome_icons/dashboard_images/cancel_button.png" alt="cancel_button" width="60" height="20" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> button to discard the process.
 
 
 ### Managing Personalities
@@ -91,6 +91,25 @@ The **Personality page** allows you to view, manage, and organize all the Person
 - <img src="openhome_icons/dashboard_images/share_icon.png" alt="share_icon" width="40" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Share**: Share this Personality with someone, allowing them to interact with it. 
 - <img src="openhome_icons/dashboard_images/edit_icon.png" alt="edit_icon" width="40" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Edit**:Click the Edit button to modify your personality. 
 - <img src="openhome_icons/dashboard_images/delete_icon.png" alt="delete_icon" width="40" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Delete**: Delete any created or installed personalities.  
-- <img src="openhome_icons/dashboard_images/reset_icon.png" alt="reset_icon" width="100" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Reset Profile**: For installed personalities reset the personality to it’s default settings.
-- <img src="openhome_icons/dashboard_images/rating_and_review.png" alt="rating_and_review" width="100" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Ratings & Review**: Review and rate the personality on the marketplace.  
+- <img src="openhome_icons/dashboard_images/reset_icon.png" alt="reset_icon" width="40" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Reset Profile**: For installed personalities reset the personality to it’s default settings.
+- <img src="openhome_icons/dashboard_images/rating_and_review.png" alt="rating_and_review" width="40" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Ratings & Review**: Review and rate the personality on the marketplace.  
 
+
+### Adding a New Voice
+
+To add your own custom voice, visit the Personalities dashboard, and select the <img src="openhome_icons/dashboard_images/add_new_voice_id_button.png" alt="add_new_voice_id_button" width="100" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} />button at the top right of the page and input the following information:
+
+- **Name**: Enter the name of the new voice you want to create. This helps identify the voice within your list of options.
+- **Description**: Provide a brief description of the voice, including details like its tone, accent, or intended use. This helps others understand what the voice is designed for when interacting with it.
+- **Voice ID**: Input the Voice ID provided by your chosen TTS (Text-to-Speech) provider. This ID links the voice you've uploaded to the provider.
+- Select <img src="openhome_icons/dashboard_images/save_button.png" alt="save_button" width="60" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> to finalize and add the new voice.
+- If you change your mind, select <img src="openhome_icons/dashboard_images/cancel_button.png" alt="cancel_button" width="60" height="40" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> to discard your voice.
+
+<p align="center">
+  <img src="openhome_icons/dashboard_images/add_new_voice_id_form.png" alt="add_new_voice_id_form" />
+</p>
+
+### Uploading Your Voice
+
+- **Generating a Voice ID**: Before adding a new voice in OpenHome, you’ll need to upload your custom voice to your preferred TTS provider (e.g., Eleven Labs). Once uploaded, you’ll receive a Voice ID from the provider, which you can enter in the Voice ID field here.
+- **Updating API Key**: Ensure your API key for the TTS provider is up to date. This key is necessary for OpenHome to communicate with the TTS service and use your custom voice for Personalities. You can update or manage your API key in the **API Keys settings** section.
