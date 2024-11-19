@@ -1,7 +1,10 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
-  "search": true,
+  "search": {
+  "enabled": true
+  },
+
   "logo": {
     "dark": "logo_openhome/dark_logo.png",
     "light": "logo_openhome/light_logo.png"
