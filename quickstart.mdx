@@ -15,32 +15,47 @@ description: 'Welcome to the OpenHome Dashboard! This guide will walk you throug
 ### New User Registration
 - If you're new to OpenHome, click `Sign up` to create a new account.
 - You can also sign up using your Google account.
-![OpenHome Login Page](openhome_icons/login_signup.png)
+![OpenHome Login Page](openhome_icons/dashboard_icons/signup_login.png)
 
 ## Navigating the Home Page
 
 ### Home Dashboard Overview
-- **Capabilities:** Access default capabilities provided by OpenHome.
+- **Abilities:** Access default Abilities provided by OpenHome.
 - **Personalities:** View and manage pre-installed personalities.
-- **Marketplace:** Browse additional personalities and capabilities.
+- **Marketplace:** Browse additional personalities and Abilities.
 
 ### Using the Dashboard
-- **Start Conversation:** Click the red button to initiate a new conversation.
-- **Audio & Mic:** Use the purple button to turn off audio and the sky blue button to mute your mic.
-- **Manual Interrupt:** The yellow button allows manual interruptions. Adjust sensitivity using the slider.
-- **API Key:** Your unique API key is displayed at the bottom.
-- **Conversation Modes:** You can have text-based conversations using the box on the lower right side.
-- **History:** Review your conversation history on the upper right side.
-- **Settings:** Located on the lower left, configure SDK settings and adjust your profile.
 
-![OpenHome Homepage](openhome_icons/home_page_1.png)
+#### Start Conversation
+To start a conversation, simply navigate to the left sidebar and select one of the available personalities under "My Conversations." Just click on the personality you'd like to interact with, and you'll be ready to engage in a dynamic and personalized chat. 
 
+- **Start Conversation:** The conversation will start automatically, ensuring enhance user experience. If you wish to end the conversation, simply click the orange button to stop. To start a new conversation, click the green button and continue the interaction.
+- **Audio & Mic:** Use the left sky blue button to turn off speaker and right sky blue button to mute your mic.
+- **Interrupt:** The interrupt button allows manual interruptions.
+- **Conversation Modes:** Switch to audio-based conversations by toggling the mode button to "on." Text mode is the default, but feel free to choose audio anytime for a more dynamic experience.
+- **History:** Review your conversation history displayed in the center.
+- **Settings:** The profile can be found in the lower-left corner. To configure the SDK settings, simply navigate to "Settings."
+- **Date functionality:** The calendar button located below the conversation will activate the date functionality.
 
-### Managing Personalities
+![OpenHome Conversation](openhome_icons/dashboard_icons/start_a_conversation.png)
 
-#### Create
-- Create a new personality by clicking the `+ Create` button.
-- **Settings:** Adjust alerts and other settings for each personality.
+#### Personality Settings
+The Personality Settings panel, located on the right side of the conversation window, offers you the flexibility to adjust and fine-tune personality-related preferences. It includes options for Conversation, Behavior, and Identity Controls.
+
+- **Conversation Settings:** Adjust conversation interaction by toggling **Auto Interrupt** ON/OFF to control automatic interruptions, enabling/disabling **Alerts** for notifications, and setting the **Interrupt Sensitivity** level using a slider to control how quickly interruptions occur based on cues.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/conversation_settings.png" alt="conversation_settings" />
+</p>
+
+- **Behavior Controls:** Customize the greeting by crafting a personalized **Starting Message**, define personality traits through a **Descriptive Prompt**, and establish the role of the personality with a clear **Purpose Prompt**.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/behaviour_control.png" alt="behaviour_control" />
+</p>
+
+- **Identity Controls:** Select the voice and language based on your personality preferences to create a more personalized and engaging experience.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/identity_controls.png" alt="identity_controls" />
+</p>
 
 ## Personalities Page
 
@@ -48,84 +63,115 @@ The Personalities page allows you to view, manage, and create custom AI personal
 
 ### Managing Personalities
 - **Search:** Use the search bar to find specific personalities quickly.
-- **Edit or Delete:** Use the icons next to each personality to edit or delete them.
+- **Edit or Delete:** Use the icons below the personality name to edit or delete them.
 
 ### Create New Personality
-- Click `Add New Personality`.
-- Fill in the required fields: Name, Cold Start Message, Description.
-- Upload a Personality Image if desired.
-- Click `Save` to add the personality.
-![Add personality page](openhome_icons/Add_personality_page.png)
+- In the left sidebar, click on "Create" and choose "Personalities" to get started.
+- Fill in the required categories: Personality Information, Personality Behavior, and Pick A Voice.
+- **Personality Information:** This information is intended specifically for the Marketplace. Include the personality name, a brief description of the marketplace, an image, and key features of the personality.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/personality-information.png" alt="personality_information" />
+</p>
 
-### Advanced Information
-- **Purpose:** Define the purpose of the personality, explaining its intended use or function.
-- **Voice ID:** Select a voice from the dropdown list to use for this personality.
-- **Text to Speech:** Write text and click on the play button to hear the selected voice.
+- **Personality Behavior:** Clearly outlining how the personality interacts and responds, this includes an introductory message, a detailed description of the personality, and its intended purpose or role.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/personality-behaviour.png" alt="personality_behavior" />
+</p>
 
-### Finalizing
-- Click `More Options` to explore additional settings.
-- Click `Save` to finalize the personality setup.
-- If you need to cancel the process, click `Cancel`.
-![Advance personality page](openhome_icons/Add_personality_page_1.png)
+- **Pick A Voice:** Effectively select a language from the provided list and identify a voice that aligns with the desired personality and gender. Additionally, you have the option to test the chosen voice.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/pick-voice.png" alt="pick_a_voice" />
+</p>
 
-### Add New Voice
-- Click `Add New Voice id`.
-- Provide the Name, Description, and Voice ID.
-- Click `Save` to apply the new voice.
+- Click `Save Personality` to add the personality.
 
-![Add new voice](openhome_icons/add_new_voice.png)
+## Abilities Page
 
-### Additional Actions
-- **Play:** Preview the personality by clicking the play icon.
-- **Share:** Share a personality with others.
-- **Reset:** Reset a personality's settings to default.
-![personalities page](openhome_icons/personalities_page.png)
+The Abilities page allows you to manage and customize the functionalities available in OpenHome. You can view installed Abilities, add new ones, and configure trigger words.
 
-## Capabilities Page
-
-The Capabilities page allows you to manage and customize the functionalities available in OpenHome. You can view installed capabilities, add new ones, and configure trigger words.
-
-### Managing Capabilities
+### Managing Abilities
 - **Tabs:**
-  - **My Capabilities:** View all custom capabilities you have created.
-  - **Published Capabilities:** View all custom capabilities you have published.
-  - **Installed Capabilities:** Manage all installed capabilities.
+  - **My Abilities:** View all custom Abilities you have created.
+  - **Published Abilities:** View all custom Abilities you have published.
+  - **Installed Abilities:** Manage all installed Abilities.
+  - **Add Custom Ability:** Upload a .zip file containing your code to create a custom ability.
+  - **Live Editor:** Enhance your created ability by utilizing the live editor for real-time modifications and improvements.
 
-### Capability Controls
-- **Enable/Disable:** Toggle a capability on or off.
-- **Agent/System Capability:** Specify the type of capability.
-- **Trigger Words:** Add or remove words/phrases that trigger the capability.
-- **Uninstall:** Remove a capability from your system.
-![Capabilities page](openhome_icons/Capabilities_page.png)
+### Ability Controls
+- **Enable/Disable:** Toggle a Ability on or off.
+- **Agent/System Ability:** Specify the type of Ability.
+- **Trigger Words:** Add or remove words/phrases that trigger the Ability.
+- **Uninstall:** Remove a Ability from your system.
+![Abilities page](openhome_icons/dashboard_icons/Ability_controls.png)
 
-### Add New Capability
+### Add New Ability
 
-#### Basic Information
-- **Capability Name:** Enter the name of the capability.
-- **Description:** Provide a description of what the capability does.
-- **Image Upload:** Upload an icon to represent the capability.
-- **File Upload:** Upload a `.zip` file containing the capability code.
-- **Trigger Words:** Add words or phrases that will trigger this capability.
+- In the left sidebar, click on "Create" and choose "Abilities" to get started.
+- **Ability Information:** Efficiently present the ability’s name, a comprehensive description, and an image to enhance its visibility in the marketplace.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/ability_information.png" alt="ability information" />
+</p>
+
+- **Ability Behavior:** Upload a .zip file containing the Ability code and specify the Trigger Words or phrases that will activate this Ability. Additionally, you have the option to choose from built-in templates.
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/ability_behavior.png" alt="ability behavior" />
+</p>
 
 #### Finalizing
-- Click `Submit` to add the new capability.
-- Click `Cancel` if you wish to discard the changes.
-![Add new capability page](openhome_icons/Add_new_capability_page.png)
+- Click `Save Ability` to add the new Ability.
 
 ## Marketplace
 
-The Marketplace page in OpenHome allows you to browse, install, and manage various personalities and capabilities to enhance your experience.
+The Marketplace page in OpenHome allows you to browse, install, and manage various personalities and Abilities to enhance your experience.
 
-### Capabilities Marketplace
-- **Browse Capabilities:** View available capabilities, including their descriptions, triggers, and ratings.
-- **Install/Uninstall:** Click `Install` to add a capability or `Uninstall` to remove it.
-- **Search:** Use the search bar to find specific capabilities quickly.
+### Abilities Marketplace
+- **Browse Abilities:** View available Abilities, along with the number of installs and user ratings.
+- **Install/Uninstall:** Click `Try It` to add a Ability or `Uninstall` to remove it.
+- **Search:** Use the search bar to find specific Abilities quickly.
 
 ### Personalities Marketplace
-- **Browse Personalities:** Discover a variety of AI personalities, complete with ratings and key features.
+- **Browse Personalities:** Discover a variety of AI personalities, along with the number of installs and complete with ratings.
 - **Install:** Click `Install` to add a personality to your collection.
 - **Featured Personalities:** Explore highlighted personalities with detailed descriptions and ratings.
 
 ### Navigation
-- **Pagination:** Use the pagination controls to navigate through different pages of capabilities or personalities.
+- **Pagination:** Use the pagination controls to navigate through different pages of Abilities or personalities.
 - **Filters:** Apply filters to narrow down your search results.
+
+### Template Abilities
+- **Built-In:** These are default templates for built-in capabilities.
+
+#### Try Template Abilities
+Click the `try it` button, A pop-up will appear where you should enter the name provided next to "Creating Template Capability." 
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/templates_ability.png" alt="templates ability" />
+</p>
+After confirming, you will be redirected to the live editor, where you can either make changes or proceed without making any adjustments.
+
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/live_editor.png" alt="templates ability" />
+</p>
+
+**Modify Files:** You can create, delete or modify files easily.
+
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/live_editor_optons.png" alt="templates ability" />
+</p>
+
+**Trigger keywords:** Trigger keywords can be checked using this button <img src="openhome_icons/dashboard_icons/trigeer_button.png" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }}/>
+
+You can also click on edit button in <img src="openhome_icons/dashboard_icons/trigger_detail.png" alt="play_icon" width="100" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> to modify, add or remove trigger keywords 
+<p align="center">
+  <img src="openhome_icons/dashboard_icons/trigger_words_modify.png" alt="templates ability" />
+</p>
+
+**Editor Options:**
+
+- <img src="openhome_icons/dashboard_icons/editor_commit.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Commit**: Commit you changes as a new release.
+- <img src="openhome_icons/dashboard_icons/editor_discard.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Discard Changes**: Discard your current changes.
+- <img src="openhome_icons/dashboard_icons/editor_save.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Save Changes**: Save your current changes.
+- <img src="openhome_icons/dashboard_icons/editor_revert.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Revert**: Revert your changes to initial release.
+- <img src="openhome_icons/dashboard_icons/editor_download.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Download Folder**: Download the ability code as a zip folder in.
+- <img src="openhome_icons/dashboard_icons/esitor_live_test.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Start Live Test**: Test your changes live here.
+- <img src="openhome_icons/dashboard_icons/editor_mic.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Mic**: Turn on/off microphone.
+- <img src="openhome_icons/dashboard_icons/editor_speaker.png" alt="play_icon" width="60" height="30" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} /> **Speaker**: Turn on/off speaker.
