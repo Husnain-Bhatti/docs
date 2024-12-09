@@ -1,4 +1,7 @@
 {
+  "style": {
+    "css": "custom.css"
+  },
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "search": {
@@ -58,5 +61,8 @@
   "footerSocials": {
     "x": "https://x.com/OpenHomeAI",
     "linkedin": "https://www.linkedin.com/company/openhome-ai"
+  },
+  "codeBlock": {
+    "mode": "auto"
   }
 }
