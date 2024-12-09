@@ -563,15 +563,14 @@ import json
 import subprocess
 import pyaudio
 import os
-from dotenv import load_dotenv
 import numpy as np
 
-load_dotenv(dotenv_path=".env")
+OPENHOME_API_KEY = "abcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyz"
 
 class VoiceStreamer:
     def __init__(self, speaker_type="mpv"):
-        self.api_key = os.getenv("API_KEY")
-        self.server_url = f"{os.getenv('SERVER_WS_DOMAIN')}/websocket/voice-stream/{self.api_key}/0"
+        self.api_key = OPENHOME_API_KEY
+        self.server_url = f"https://app.openhome.xyz/websocket/voice-stream/{self.api_key}/0"
         self.frames_per_buffer = 3200
         self.format = pyaudio.paInt16
         self.channels = 1
