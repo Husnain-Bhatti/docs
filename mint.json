@@ -49,8 +49,9 @@
         "dashboard",
         "personalities",
         "quickstart",
-        "development",
-        "CapabilityWorker"
+        "apidocs",
+        "websocket",
+        "ability"
       ]
     }
   ],

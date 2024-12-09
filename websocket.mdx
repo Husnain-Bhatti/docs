@@ -1,0 +1,86 @@
+---
+title: 'Websocket Streaming'
+description: 'How to use our websocket in your application to call your agent'
+---
+
+Use the desired personality id under your account in the WebSocket URL. <br/>
+```wss://app.openhome.xyz/websocket/voice-stream/OPENHOME_API_KEY/PERSONALITY_ID```
+Here is an example:<br/>
+```wss://app.openhome.xyz/websocket/voice-stream/xyzsdsadasannfma/4727```
+
+### OPENHOME_API_KEY
+Checkout <a href="/development">API Docs</a> to get OPENHOME_API_KEY
+### PERSONALITY_ID
+Checkout <a href="/development">Get Personalities</a> section to get your account's personality ids.
+
+- **4727**: Represents the personality ID.
+- Set the personality ID to `0` to skip this part. This will start the call with the default agent, OpenHome.
+
+---
+
+## WebSocket Flow
+
+### Audio Data Format
+Audio data sent to the WebSocket must adhere to the following specifications:
+    - Format: **16-bit PCM**
+    - Sample Rate: **16000 Hz**
+    - Encoding: **Base64**
+
+Ensure that the audio is converted to this format before sending it to the WebSocket.
+
+---
+
+### WebSocket Message Structure
+
+#### Client to Server Messages
+
+1. **User to Server Text Messages**
+   ```json
+   {
+     "data": "MESSAGE_CONTEXT",
+     "type": "transcribed"
+   }
+
+2. **User to Server Audio Messages**
+    ```json
+    {
+    "data": "BASE64_ENCODED_AUDIO_MESSAGES",
+    "type": "audio"
+    }
+    ```
+
+### Server to Client Messages
+1. Server to User Text Messages
+    ```json
+    {
+        "data": {
+            "content": "MESSAGE CONTENT",
+            "live": true,
+            "role": "assistant"
+        },
+        "type": "message"
+    }
+    ```
+    **live: true** indicates live transcription or response logs.
+
+    **final: true** provides finalized transcription and response messages.
+
+2. Server to User Audio Messages
+    ```json
+    {
+        "data": "BASE64_ENCODED_AUDIO_MESSAGES",
+        "type": "audio"
+    }
+    ```
+
+
+EXAMPLES:<br/>
+Python
+```py
+import websockets
+```
+
+REACT
+```js
+
+```
