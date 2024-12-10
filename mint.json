@@ -51,10 +51,15 @@
         "introduction",
         "dashboard",
         "personalities",
+        "ability"
+      ]
+    },
+    {
+      "group": "Developer's Docs",
+      "pages": [
         "quickstart",
         "apidocs",
         "websocket",
-        "ability",
         "how_to_build_an_ability"
       ]
     }
