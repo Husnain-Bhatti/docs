@@ -1,0 +1,224 @@
+---
+title: How to Build an Ability 
+description: Learn to build and integrate custom Abilities in OpenHome, using `CapabilityWorker` and example use cases.
+
+---
+
+## Introduction
+
+Custom Abilities are the cornerstone of extending OpenHome's functionality. They allow developers to:
+
+- Add personalized features to AI agents.
+- Integrate third-party APIs for dynamic interactions.
+- Customize logic for enhanced user engagement.
+
+This guide walks you through:
+
+- Structuring and registering an Ability.
+- Using `CapabilityWorker` for seamless I/O management.
+- Examples showcasing how to create powerful custom Abilities.
+
+---
+
+## Adding an Ability
+
+### File Structure
+
+Each Ability resides in its folder and requires a `main.py` file to define the logic.
+
+```plaintext
+<YourAbilityFolder>
+│
+└── main.py
+```
+
+### Example File: `main.py`
+
+Here’s a basic template for building a new Ability:
+
+```python
+class YourCapability(MatchingCapability):
+    @classmethod
+    def register_capability(cls) -> "MatchingCapability":
+        return cls(
+            unique_name="unique capability name, e.g., timer",
+            matching_hotwords=["words to trigger, e.g., 'set a timer for ten minutes'"],
+        )
+
+    def call(
+        self,
+        msg: str,
+        agent: BotAgent,
+        text_respond: SynchronousTTT,
+        speak_respond: None,
+        audio: str,
+        worker: AgentWorker,
+        meta: dict[str, Any],
+        agent_current_message: SharedValue,
+    ):
+        # Your capability logic here
+        return "Your Capability Called!"
+```
+
+### Key Components
+
+- **`register_capability`**: Defines the Ability's `unique_name` and `matching_hotwords`.  
+- **`call`**: Executes the Ability’s logic when triggered.
+
+---
+
+## Understanding `CapabilityWorker`
+
+The `CapabilityWorker` class simplifies I/O interactions, enabling:
+
+- **Speech synthesis**: Using text-to-speech (TTS).  
+- **Listening for user input**: Capturing and processing responses.  
+- **Running interaction loops**: Supporting conversational flows.
+
+---
+
+### Speak Function
+
+The `speak` function converts text into speech and streams it to the user via WebSocket.
+
+```python
+async def speak(self, tokens: str, agent_current_message: SharedValue):
+    async with aiohttp.ClientSession() as session:
+        websocket: ClientWebSocketResponse = await self.tts_ios.session.ws_connect(
+            url=self.worker.tts_ios.stream_uri,
+            headers=self.worker.tts_ios.headers,
+        )
+        await self.worker.speak(websocket, tokens, agent_current_message)
+```
+
+### User Response Function
+
+This function listens for user input asynchronously, ideal for capturing dynamic user responses.
+
+```python
+async def user_response(self):
+    while not self.worker.user_is_finished_speak_event.is_set():
+        await asyncio.sleep(0.1)
+    user_input = await self.worker.context_queue.get()
+    return user_input
+```
+
+### Run I/O Loop
+
+The `run_io_loop` orchestrates speaking and listening for responses in a single flow.
+
+```python
+async def run_io_loop(self, tokens: str, agent_current_message: SharedValue):
+    await self.speak(tokens, agent_current_message)
+    result = await self.user_response()
+    return result
+```
+
+### Confirmation Loop
+
+This specialized loop handles confirmation prompts like "yes" or "no" interactions.
+
+```python
+async def run_confirmation_loop(self, tokens: str, agent_current_message: SharedValue):
+    prompt = tokens + ", Please respond with 'yes' or 'no'."
+    while True:
+        await self.speak(prompt, agent_current_message)
+        response = await self.user_response()
+        if "yes" in response.lower():
+            return True
+        elif "no" in response.lower():
+            return False
+```
+
+## Example 1: Basic Capability
+
+This Ability creates a daily life advisor that:
+
+1. **Asks the user for a problem**: Initiates a conversation to gather user input.  
+2. **Provides advice**: Offers a solution based on user input.  
+3. **Collects feedback**: Captures user satisfaction with the advice.
+
+---
+
+### Code
+
+```python
+class BasicCapability(MatchingCapability):
+    async def give_advice(self):
+        await self.capability_worker.speak("Hi! I'm your daily life advisor. Tell me your problem.")
+        user_problem = await self.capability_worker.user_response()
+
+        solution_prompt = f"Provide a solution for: {user_problem}"
+        solution = self.capability_worker.text_to_text_response(solution_prompt)
+
+        user_feedback = await self.capability_worker.run_io_loop(
+            solution + " Are you satisfied with the advice?"
+        )
+        await self.capability_worker.speak("Thank you for using the advisor.")
+        self.capability_worker.resume_normal_flow()
+
+    def call(self, worker: AgentWorker):
+        self.worker = worker
+        self.capability_worker = CapabilityWorker(self.worker)
+        asyncio.create_task(self.give_advice())
+```
+### Key Functions
+
+- **`speak`**: Introduces the advisor and provides the solution.  
+- **`user_response`**: Captures user input (e.g., their problem).  
+- **`run_io_loop`**: Combines speaking the solution and listening for feedback.  
+- **`resume_normal_flow`**: Resumes the agent's default workflow after interaction.
+
+---
+
+## Example 2: Weather Capability
+
+This Ability integrates a weather API to fetch and share weather updates based on user-provided locations.
+
+---
+
+### Code
+
+```python
+class WeatherDocsCapability(MatchingCapability):
+    async def first_setup(self, location: str):
+        if not location:
+            await self.capability_worker.speak("Which location?")
+            location = await self.capability_worker.user_response()
+
+        geolocator = Nominatim(user_agent="weather_agent")
+        loc = geolocator.geocode(location)
+
+        if loc:
+            result = requests.get(
+                f"https://api.open-meteo.com/v1/forecast?latitude={loc.latitude}&longitude={loc.longitude}&current=temperature_2m"
+            ).json()
+            weather_report = f"The temperature in {location} is {result['current']['temperature_2m']}°C."
+            await self.capability_worker.speak(weather_report)
+        else:
+            await self.capability_worker.speak("Invalid location. Try again.")
+        
+        self.capability_worker.resume_normal_flow()
+
+    def call(self, worker: AgentWorker):
+        self.worker = worker
+        self.capability_worker = CapabilityWorker(self.worker)
+        asyncio.create_task(self.first_setup(""))
+```
+
+### Key Features
+
+- **External API Call**: Fetches real-time weather data.  
+- **Geolocation**: Validates and processes user-provided locations.  
+- **Error Handling**: Provides meaningful feedback for invalid inputs.
+
+---
+
+## Conclusion
+
+Building Abilities in OpenHome empowers developers to create custom functionalities for AI agents. With examples like the Basic Advisor and Weather Capability:
+
+- Understand core functions like `speak`, `run_io_loop`, and API integration.  
+- Extend the platform to fit unique needs, from integrating external APIs to creating dynamic conversational flows.
+
+Start creating innovative Abilities and push the boundaries of voice AI with OpenHome! 🎉

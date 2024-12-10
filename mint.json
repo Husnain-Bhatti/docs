@@ -54,7 +54,8 @@
         "quickstart",
         "apidocs",
         "websocket",
-        "ability"
+        "ability",
+        "how_to_build_an_ability"
       ]
     }
   ],
