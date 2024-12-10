@@ -106,10 +106,10 @@ async def run_io_loop(self, tokens: str):
 This specialized loop handles confirmation prompts like "yes" or "no" interactions.
 
 ```python
-async def run_confirmation_loop(self, tokens: str, agent_current_message: SharedValue):
+async def run_confirmation_loop(self, tokens: str):
     prompt = tokens + ", Please respond with 'yes' or 'no'."
     while True:
-        await self.speak(prompt, agent_current_message)
+        await self.speak(prompt)
         response = await self.user_response()
         if "yes" in response.lower():
             return True
