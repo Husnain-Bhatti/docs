@@ -82,8 +82,7 @@ The `CapabilityWorker` class simplifies I/O interactions, enabling:
 The `speak` function converts text into speech and streams it to the user via WebSocket.
 
 ```python
-    async def speak(self, tokens: str):
-
+async def speak(self, tokens: str):
 ```
 
 ### User Response Function
@@ -92,7 +91,6 @@ This function listens for user input asynchronously, ideal for capturing dynamic
 
 ```python
 async def user_response(self):
-
 ```
 
 ### Run I/O Loop
@@ -100,8 +98,7 @@ async def user_response(self):
 The `run_io_loop` orchestrates speaking and listening for responses in a single flow.
 
 ```python
-    async def run_io_loop(self, tokens: str):
-
+async def run_io_loop(self, tokens: str):
 ```
 
 ### Confirmation Loop
