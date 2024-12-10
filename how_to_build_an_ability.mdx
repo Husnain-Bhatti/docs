@@ -82,13 +82,8 @@ The `CapabilityWorker` class simplifies I/O interactions, enabling:
 The `speak` function converts text into speech and streams it to the user via WebSocket.
 
 ```python
-async def speak(self, tokens: str, agent_current_message: SharedValue):
-    async with aiohttp.ClientSession() as session:
-        websocket: ClientWebSocketResponse = await self.tts_ios.session.ws_connect(
-            url=self.worker.tts_ios.stream_uri,
-            headers=self.worker.tts_ios.headers,
-        )
-        await self.worker.speak(websocket, tokens, agent_current_message)
+    async def speak(self, tokens: str):
+
 ```
 
 ### User Response Function
@@ -97,10 +92,7 @@ This function listens for user input asynchronously, ideal for capturing dynamic
 
 ```python
 async def user_response(self):
-    while not self.worker.user_is_finished_speak_event.is_set():
-        await asyncio.sleep(0.1)
-    user_input = await self.worker.context_queue.get()
-    return user_input
+
 ```
 
 ### Run I/O Loop
@@ -108,10 +100,8 @@ async def user_response(self):
 The `run_io_loop` orchestrates speaking and listening for responses in a single flow.
 
 ```python
-async def run_io_loop(self, tokens: str, agent_current_message: SharedValue):
-    await self.speak(tokens, agent_current_message)
-    result = await self.user_response()
-    return result
+    async def run_io_loop(self, tokens: str):
+
 ```
 
 ### Confirmation Loop
