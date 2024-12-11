@@ -71,5 +71,8 @@
   },
   "codeBlock": {
     "mode": "auto"
+  },
+  "feedback": {
+    "thumbsRating": true
   }
 }
