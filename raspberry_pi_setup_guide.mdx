@@ -1,7 +1,7 @@
-# Raspberry Pi Setup Guide
-
-This guide will walk you through the process of setting up OpenHome on a Raspberry Pi Zero 2W. Follow the steps below to download the necessary software, burn the image to an SD card, and configure your device to work with OpenHome.
-
+---
+title: Raspberry Pi Setup Guide
+description: "This guide will walk you through the process of setting up OpenHome on a Raspberry Pi Zero 2W. Follow the steps below to download the necessary software, burn the image to an SD card, and configure your device to work with OpenHome.
+"
 ---
 
 ## Prerequisites
@@ -15,7 +15,6 @@ Before starting, ensure you have the following:
 - **Bluetooth speaker**
 - **Computer** with internet access
 
----
 
 ## Step 1: Download and Install Raspberry Pi Imager
 
@@ -26,7 +25,9 @@ Before starting, ensure you have the following:
 2. **Install Raspberry Pi Imager**:
    - Follow the installation instructions for your operating system to install the Raspberry Pi Imager.
 
----
+3. **OpenHome DevKit OS**:
+   - You can download the OpenHome DevKit OS from [here](https://drive.google.com/file/d/1T32GZPwVblpOWTATYz8dzKSgQnpD8Dlw/view?usp=sharing).
+
 
 ## Step 2: Burn the OpenHome Image to the SD Card
 
@@ -39,23 +40,18 @@ Before starting, ensure you have the following:
 3. **Choose Device**:
    - Click on **"Choose Device"** and select **"Raspberry Pi Zero 2W"** from the list.
 
-   ![Choose Device Screenshot](/path/to/choose-device-screenshot.png) <!-- Add screenshot path -->
-
 4. **Choose Operating System**:
    - Click on **"Choose Operating System"**.
    - Select **"Use custom"** and then choose the downloaded OpenHome image file.
 
-   ![Choose OS Screenshot](/path/to/choose-os-screenshot.png) <!-- Add screenshot path -->
 
 5. **Choose Storage**:
    - Click on **"Choose Storage"** and select your SD card from the list.
 
-   ![Choose Storage Screenshot](/path/to/choose-storage-screenshot.png) <!-- Add screenshot path -->
 
 6. **Write the Image**:
    - Click on **"Write"** to start burning the image to the SD card. This process may take a few minutes.
 
----
 
 ## Step 3: Set Up the Raspberry Pi
 
@@ -65,7 +61,6 @@ Before starting, ensure you have the following:
 2. **Power On the Raspberry Pi**:
    - Connect your Raspberry Pi to a **2Amp minimum charger** and turn it on.
 
----
 
 ## Step 4: Create a New User on OpenHome
 
@@ -74,7 +69,6 @@ Before starting, ensure you have the following:
    - Remember the email and password you use to sign up.
    - If you already have an account but don't have a password set, use the **"Forgot Password"** option or set a new password from the **"Profile"** section in settings.
 
----
 
 ## Step 5: Connect to OpenHome Wi-Fi
 
@@ -88,7 +82,6 @@ Before starting, ensure you have the following:
 3. **Configure Wi-Fi and User Login**:
    - Follow the on-screen instructions to configure your Wi-Fi settings and log in with your OpenHome user credentials.
 
----
 
 ## Step 6: Connect to Your Internet Wi-Fi
 
@@ -101,14 +94,12 @@ Before starting, ensure you have the following:
 3. **Log in to OpenHome**:
    - Go to [app.openhome.xyz](https://app.openhome.xyz) and log in with the same account you used earlier.
 
----
 
 ## Step 7: Configure Bluetooth Speaker
 
 1. **Access Profile Settings**:
    - Navigate to **"Profile" -> "Settings"** and click on the **"DevKit"** section. Your device should be connected.
 
-   ![DevKit Screenshot](/path/to/devkit-screenshot.png) <!-- Add screenshot path -->
 
 2. **Turn on Bluetooth**:
    - Turn on the Bluetooth of your speaker.
@@ -126,14 +117,8 @@ Before starting, ensure you have the following:
 6. **Start the Call**:
    - The call should start automatically. If it doesn't, click the **"Restart Agent"** button.
 
----
 
-## Conclusion
+## Your OpenHome DevKit setup is done
 
 Congratulations! You have successfully set up OpenHome on your Raspberry Pi Zero 2W and connected it to your Bluetooth speaker. You can now enjoy the features of OpenHome with your Raspberry Pi.
 
-For further assistance, refer to the [OpenHome Documentation](https://docs.openhome.xyz) or contact support.
-
----
-
-**Note**: Replace `/path/to/screenshot.png` with the actual paths to your screenshots for each step.

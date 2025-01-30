@@ -60,7 +60,8 @@
         "quickstart",
         "apidocs",
         "websocket",
-        "how_to_build_an_ability"
+        "how_to_build_an_ability",
+        "raspberry_pi_setup_guide"
       ]
     }
   ],
