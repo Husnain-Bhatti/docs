@@ -1,0 +1,139 @@
+# Raspberry Pi Setup Guide
+
+This guide will walk you through the process of setting up OpenHome on a Raspberry Pi Zero 2W. Follow the steps below to download the necessary software, burn the image to an SD card, and configure your device to work with OpenHome.
+
+---
+
+## Prerequisites
+
+Before starting, ensure you have the following:
+
+- **Raspberry Pi Zero 2W**
+- **SD card** (8GB minimum)
+- **USB card reader** or adapter
+- **2Amp minimum charger**
+- **Bluetooth speaker**
+- **Computer** with internet access
+
+---
+
+## Step 1: Download and Install Raspberry Pi Imager
+
+1. **Download Raspberry Pi Imager**:
+   - Visit the official [Raspberry Pi Imager](https://www.raspberrypi.org/software/) website.
+   - Download the appropriate version for your operating system (Windows, macOS, or Linux).
+
+2. **Install Raspberry Pi Imager**:
+   - Follow the installation instructions for your operating system to install the Raspberry Pi Imager.
+
+---
+
+## Step 2: Burn the OpenHome Image to the SD Card
+
+1. **Insert the SD Card**:
+   - Insert your SD card into the USB card reader or adapter and connect it to your computer.
+
+2. **Open Raspberry Pi Imager**:
+   - Launch the Raspberry Pi Imager application.
+
+3. **Choose Device**:
+   - Click on **"Choose Device"** and select **"Raspberry Pi Zero 2W"** from the list.
+
+   ![Choose Device Screenshot](/path/to/choose-device-screenshot.png) <!-- Add screenshot path -->
+
+4. **Choose Operating System**:
+   - Click on **"Choose Operating System"**.
+   - Select **"Use custom"** and then choose the downloaded OpenHome image file.
+
+   ![Choose OS Screenshot](/path/to/choose-os-screenshot.png) <!-- Add screenshot path -->
+
+5. **Choose Storage**:
+   - Click on **"Choose Storage"** and select your SD card from the list.
+
+   ![Choose Storage Screenshot](/path/to/choose-storage-screenshot.png) <!-- Add screenshot path -->
+
+6. **Write the Image**:
+   - Click on **"Write"** to start burning the image to the SD card. This process may take a few minutes.
+
+---
+
+## Step 3: Set Up the Raspberry Pi
+
+1. **Insert the SD Card**:
+   - Once the image is written, insert the SD card into your Raspberry Pi Zero 2W.
+
+2. **Power On the Raspberry Pi**:
+   - Connect your Raspberry Pi to a **2Amp minimum charger** and turn it on.
+
+---
+
+## Step 4: Create a New User on OpenHome
+
+1. **Create a New User**:
+   - If you don't already have a user account on [app.openhome.xyz](https://app.openhome.xyz), create one.
+   - Remember the email and password you use to sign up.
+   - If you already have an account but don't have a password set, use the **"Forgot Password"** option or set a new password from the **"Profile"** section in settings.
+
+---
+
+## Step 5: Connect to OpenHome Wi-Fi
+
+1. **Connect to OpenHome Wi-Fi**:
+   - On your device, connect to the Wi-Fi network named `Openhome_MACADDRESS`.
+   - The default password is `ChangeMe`.
+
+2. **Access the OpenHome Web Interface**:
+   - Open a web browser and go to [http://192.168.50.1](http://192.168.50.1).
+
+3. **Configure Wi-Fi and User Login**:
+   - Follow the on-screen instructions to configure your Wi-Fi settings and log in with your OpenHome user credentials.
+
+---
+
+## Step 6: Connect to Your Internet Wi-Fi
+
+1. **Disconnect from OpenHome Wi-Fi**:
+   - Once configuration is complete, disconnect from the `Openhome_MACADDRESS` Wi-Fi network.
+
+2. **Connect to Your Internet Wi-Fi**:
+   - Connect your device to your regular internet Wi-Fi network.
+
+3. **Log in to OpenHome**:
+   - Go to [app.openhome.xyz](https://app.openhome.xyz) and log in with the same account you used earlier.
+
+---
+
+## Step 7: Configure Bluetooth Speaker
+
+1. **Access Profile Settings**:
+   - Navigate to **"Profile" -> "Settings"** and click on the **"DevKit"** section. Your device should be connected.
+
+   ![DevKit Screenshot](/path/to/devkit-screenshot.png) <!-- Add screenshot path -->
+
+2. **Turn on Bluetooth**:
+   - Turn on the Bluetooth of your speaker.
+
+3. **Scan for Bluetooth Devices**:
+   - Click on **"Scan Bluetooth Devices"** in the OpenHome app.
+
+4. **Connect to the Speaker**:
+   - Select your Bluetooth speaker from the list.
+   - Ensure the profile is set to **"a2dp-sink"**. If it doesn't appear, try reconnecting.
+
+5. **Set Default Input**:
+   - Set the default input to **"analog-mono"**.
+
+6. **Start the Call**:
+   - The call should start automatically. If it doesn't, click the **"Restart Agent"** button.
+
+---
+
+## Conclusion
+
+Congratulations! You have successfully set up OpenHome on your Raspberry Pi Zero 2W and connected it to your Bluetooth speaker. You can now enjoy the features of OpenHome with your Raspberry Pi.
+
+For further assistance, refer to the [OpenHome Documentation](https://docs.openhome.xyz) or contact support.
+
+---
+
+**Note**: Replace `/path/to/screenshot.png` with the actual paths to your screenshots for each step.
