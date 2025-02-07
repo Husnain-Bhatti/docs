@@ -114,6 +114,40 @@ async def run_confirmation_loop(self, tokens: str):
             return False
 ```
 
+### Wait for Complete Transcription
+
+This function waits until the user has completely finished speaking before processing the input.
+
+```python
+async def wait_for_complete_transcription(self):
+```
+
+Returns:
+
+- `msg (str)`: The final transcribed user input after the user has finished speaking.
+
+### Send Devkit Action
+This function sends an action event over WebSocket, allowing integration with the Devkit system.
+It is useful for triggering specific actions in Devkit systems.
+
+```python
+async def send_devkit_action(self, action: str = ""):
+```
+Parameters:
+
+- `action (str)`: The action to be sent to the Devkit.
+
+### Send Data Over WebSocket
+This function transmits structured data over WebSocket, ensuring seamless communication with external systems.
+
+```python
+async def send_data_over_websocket(self, type: str = "", data: dict = {}):
+```
+Parameters:
+
+- `type (str)`: The type of data being sent.
+- `data (dict)`: The structured data to be transmitted.
+
 ## Example 1: Basic Capability
 
 This Ability creates a daily life advisor that:
