@@ -47,14 +47,7 @@ class YourCapability(MatchingCapability):
 
     def call(
         self,
-        msg: str,
-        agent: BotAgent,
-        text_respond: SynchronousTTT,
-        speak_respond: None,
-        audio: str,
         worker: AgentWorker,
-        meta: dict[str, Any],
-        agent_current_message: SharedValue,
     ):
         # Your capability logic here
         return "Your Capability Called!"
