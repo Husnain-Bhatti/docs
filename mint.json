@@ -63,6 +63,12 @@
         "how_to_build_an_ability",
         "raspberry_pi_setup_guide"
       ]
+    },
+    {
+      "group": "AI Twin",
+      "pages": [
+        "AI_Twin_Support_&_Help_Guide"
+      ]
     }
   ],
   "footerSocials": {
