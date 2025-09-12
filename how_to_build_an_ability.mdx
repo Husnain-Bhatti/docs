@@ -92,7 +92,7 @@ async def user_response(self):
 
 ### Run I/O Loop
 
-The `run_io_loop` orchestrates speaking and listening for responses in a single flow.
+The `run_io_loop` orchestrates speaking and listening for responses in a single flow. It orchestrates a single “ask-then-listen” interaction. It speaks the provided text to the user, then waits for the next user reply, and finally returns that reply. Use when: You need a simple “ask once, get one reply” interaction.
 
 ```python
 async def run_io_loop(self, tokens: str):
@@ -141,12 +141,75 @@ Parameters:
 This function transmits structured data over WebSocket, ensuring seamless communication with external systems.
 
 ```python
-async def send_data_over_websocket(self, type: str = "", data: dict = {}):
+async def send_data_over_websocket(self, data_type: str = "", data: dict = {}):
 ```
 Parameters:
 
-- `type (str)`: The type of data being sent.
+- `data_type (str)`: The type of data being sent.
 - `data (dict)`: The structured data to be transmitted.
+
+
+### Text-to-Text Response
+This function generates text responses using the configured text-to-text client with optional history and system prompts.
+
+```python
+def text_to_text_response(self, prompt_text: str, history: list = [], system_prompt: str = ""):
+```
+Parameters:
+
+- `prompt_text (str)`: The prompt text to generate a response for.
+- `history (list)`: Optional conversation history for context.
+- `system_prompt (str)`: Optional system prompt to guide the response.
+
+Returns:
+
+- `str`: The generated text response.
+
+### Play Audio
+This function plays audio content directly from file content or bytes.
+
+```python
+async def play_audio(self, file_content):
+```
+Parameters:
+
+- `file_content`: The audio file content to play (bytes or file-like object).
+
+### Play from Audio File
+This function plays audio from a file stored in the capability's directory.
+
+```python
+async def play_from_audio_file(self, file_name: str = None):
+```
+Parameters:
+
+- `file_name (str)`: The name of the audio file to play from the capability directory.
+
+
+### Stream Init
+This function initializes audio streaming and sets up the WebSocket connection.
+
+```python
+async def stream_init(self):
+```
+
+### Stream End
+This function ends the audio streaming session and cleans up resources.
+
+```python
+async def stream_end(self):
+```
+
+### Send Audio Data in Stream
+This function streams audio data in chunks over WebSocket, with automatic audio processing (mono conversion, resampling).
+
+```python
+async def send_audio_data_in_stream(self, file_content: bytes | IO[bytes] | httpx.Response, chunk_size=4096):
+```
+Parameters:
+
+- `file_content`: The audio content to stream (bytes, file-like object, or HTTP response).
+- `chunk_size (int)`: The size of each chunk to send (default: 4096 bytes).
 
 
 ### Using Specific Voice IDs for Text-to-Speech
@@ -627,6 +690,33 @@ async def text_to_speech(self, text: str, voice_id: str):
 - `text (str)`: The text to be converted into speech.
 - `voice_id (str)`: The Voice ID to be used for speech synthesis.
 
+---
+
+## Advanced CapabilityWorker Functions
+
+### Audio Processing Functions
+
+The `CapabilityWorker` provides comprehensive audio handling capabilities:
+
+- **`play_audio`**: Play audio content directly or file objects
+- **`play_from_audio_file`**: Play audio files stored in the capability directory
+- **`send_audio_data_in_stream`**: Stream processed audio data over WebSocket
+
+### Text Generation Functions
+
+Multiple options for text generation:
+
+- **`text_to_text_response`**: Standard text generation with history and system prompts
+
+### Streaming and Communication
+
+Advanced communication features:
+
+- **`stream_init`** and **`stream_end`**: Manage audio streaming sessions
+- **`send_data_over_websocket`**: Send custom data over WebSocket
+
+---
+
 ## Example 1: Basic Capability
 
 This Ability creates a daily life advisor that:
@@ -711,12 +801,44 @@ class WeatherDocsCapability(MatchingCapability):
 
 ---
 
+## Allowed/Disallowed Libraries and Patterns
+
+The following imports, keywords, and patterns are not allowed in Abilities. Use the safe alternatives.
+
+### Blocked Imports and Keywords
+
+| Name | Why not allowed |
+|---|---|
+| redis | Direct datastore coupling and security concerns; not portable across deployments. |
+| RedisHandler (`src.utils.db_handler`) | Bypasses platform abstractions; risks data integrity and sandbox boundaries. |
+| connection_manager | Central system control; direct use from Abilities breaks isolation and multi-tenant safety. |
+| user_config | Raw config access can leak or mutate global state; use provided APIs on `CapabilityWorker`/`worker`. |
+| print | Bypasses structured logging; noisy and untraceable in production; use `editor_logging_handler`. |
+| open (raw) | Unmanaged filesystem access; security and portability risks; prefer approved helpers/per-user storage. |
+
+Guidance:
+
+- Avoid direct storage/infra access. Use platform-provided helpers within `CapabilityWorker`/`worker` or request an API if needed.
+- Use the provided logging (`editor_logging_handler`) instead of prints.
+- For files, prefer platform abstractions and per-user capability folders; ask for an approved helper if you need persistent storage.
+
+### Security Guidance
+
+Avoid insecure or unsafe patterns such as runtime `assert` checks, `exec()` of dynamic code, binding servers to all interfaces, hardcoded secrets, swallowing exceptions, insecure deserialization (pickle/dill/shelve/marshal), weak hashes like MD5, or weak cipher modes (e.g., ECB). If you have a special case, request approval and an approved wrapper/utility.
+
+---
+
 ## Conclusion
 
-Building Abilities in OpenHome empowers developers to create custom functionalities for AI agents. With examples like the Basic Advisor and Weather Capability:
+Building Abilities in OpenHome empowers developers to create custom functionalities for AI agents. With the examples like the Basic Advisor and Weather Capability, you can:
 
-- Understand core functions like `speak`, `run_io_loop`, and API integration.  
-- Extend the platform to fit unique needs, from integrating external APIs to creating dynamic conversational flows.
+- **Core Communication**: Use `speak`, `run_io_loop`, and `user_response` for basic interactions.
+- **Advanced Audio**: Play custom audio files, and stream audio data.
+- **Text Generation**: Leverage multiple text-to-text options with history and system prompts.
+- **Voice Customization**: Use specific voice IDs for varied and engaging responses.
+- **External APIs**: Integrate third-party services for dynamic functionality.
+
+The examples demonstrate everything from basic conversational flows to advanced audio processing and device control. The `CapabilityWorker` provides all the tools needed to create sophisticated, interactive Abilities.
 
 > Start creating innovative Abilities and push the boundaries of voice AI with OpenHome! 🎉
 
