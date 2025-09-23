@@ -747,7 +747,7 @@ class BasicCapability(MatchingCapability):
     def call(self, worker: AgentWorker):
         self.worker = worker
         self.capability_worker = CapabilityWorker(self.worker)
-        asyncio.create_task(self.give_advice())
+        self.worker.session_tasks.create(self.give_advice())
 ```
 ### Key Functions
 
@@ -790,7 +790,7 @@ class WeatherDocsCapability(MatchingCapability):
     def call(self, worker: AgentWorker):
         self.worker = worker
         self.capability_worker = CapabilityWorker(self.worker)
-        asyncio.create_task(self.first_setup(""))
+        self.worker.session_tasks.create(self.first_setup(""))
 ```
 
 ### Key Features
