@@ -717,6 +717,20 @@ Advanced communication features:
 
 ---
 
+### Session Task Utilities (replace raw asyncio usage)
+
+To ensure Abilities run within the agent's managed lifecycle, avoid using raw `asyncio` helpers directly.
+
+- Use `self.worker.session_tasks.sleep(seconds: float)` instead of `asyncio.sleep(...)`:
+
+```python
+async def some_task(self):
+    await self.worker.session_tasks.sleep(1.5)
+    await self.capability_worker.speak("Thanks for waiting!")
+```
+
+These helpers ensure proper cancellation, cleanup, and session scoping.
+
 ## Example 1: Basic Capability
 
 This Ability creates a daily life advisor that:
